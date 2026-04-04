@@ -22,7 +22,7 @@ export function BlogPosts() {
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex flex-row items-baseline justify-between gap-4">
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight transition-colors group-hover:text-neutral-500 dark:group-hover:text-neutral-400">
+              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight transition-colors group-hover:text-neutral-500 dark:group-hover:text-neutral-400 truncate">
                 {post.metadata.title}
               </p>
               <p className="text-neutral-600 dark:text-neutral-400 tabular-nums shrink-0">

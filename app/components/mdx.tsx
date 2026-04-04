@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
+import { SkeletonImage, SkeletonImg } from './skeleton-image'
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -45,11 +45,11 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return <SkeletonImage alt={props.alt} className="rounded-lg" {...props} />
 }
 
 function MdxImage(props) {
-  return <img alt={props.alt} className="rounded-lg w-full" {...props} />
+  return <SkeletonImg alt={props.alt} wrapperClassName="w-full" className="rounded-lg w-full" {...props} />
 }
 
 function YouTube({ id }: { id: string }) {

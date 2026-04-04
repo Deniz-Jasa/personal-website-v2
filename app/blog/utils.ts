@@ -76,11 +76,10 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = 'Today'
   }
 
-  let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
+  let mm = String(targetDate.getMonth() + 1).padStart(2, '0')
+  let dd = String(targetDate.getDate()).padStart(2, '0')
+  let yyyy = targetDate.getFullYear()
+  let fullDate = `${mm}/${dd}/${yyyy}`
 
   if (!includeRelative) {
     return fullDate

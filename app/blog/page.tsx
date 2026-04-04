@@ -1,4 +1,5 @@
 import { BlogPosts } from 'app/components/posts'
+import { SkeletonImg } from 'app/components/skeleton-image'
 
 export const metadata = {
   title: 'Blog',
@@ -9,9 +10,10 @@ export default function Page() {
   return (
     <div>
       <div className="relative -mx-8 md:-mx-4 lg:-mx-[max(1rem,calc((100vw-62rem)/2))] -mt-[3rem] md:-mt-[4rem] h-60 md:h-[22rem] overflow-hidden">
-        <img
+        <SkeletonImg
           src="/imgs/cover.png"
           alt=""
+          wrapperClassName="w-full h-full"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-[#14120B]" />

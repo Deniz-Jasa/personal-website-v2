@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
+import { SkeletonImg } from 'app/components/skeleton-image'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
@@ -72,9 +73,10 @@ export default async function Blog({ params }) {
 
       {post.metadata.image && (
         <div className="relative -mx-8 md:-mx-4 lg:-mx-[max(1rem,calc((100vw-62rem)/2))] -mt-[3rem] md:-mt-[4rem] h-60 md:h-[22rem] overflow-hidden">
-          <img
+          <SkeletonImg
             src={post.metadata.image}
             alt=""
+            wrapperClassName="w-full h-full"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-[#14120B]" />

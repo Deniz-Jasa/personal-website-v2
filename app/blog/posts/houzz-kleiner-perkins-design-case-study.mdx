@@ -9,43 +9,40 @@ By [Deniz Jasarbasic](https://www.linkedin.com/in/deniz-jasarbasic/)
 
 ## Introduction
 
-While reviewing the portfolio companies for the Kleiner Perkins Design Fellowship Challenge, I decided to focus on a partner whose product I know firsthand. I chose Houzz—a platform I've used for home design inspiration and project planning. Drawing from my own experiences, along with insights from friends and family who also use the app, I decided to redesign the Houzz mobile app to modernize its content discovery and search experience.
-
-> This is a case study for the Kleiner Perkins Design Fellowship. I am not affiliated with Houzz.
+Kleiner Perkins has a design fellowship program, as part of the application process, candidates redesign a product from their portfolio. I focused on a company whose product I knew pretty well: Houzz, a platform I've used for home design inspiration and project planning in the past. Drawing from my own experience and feedback from family and friends who have also used the app, I redesigned the Houzz mobile experience to modernize its content discovery and search.
+> This is a case study for the Kleiner Perkins design fellowship. I am not affiliated with Houzz.
 
 ## Curated Search Experience
 
-Houzz offers a wealth of resources for home design, inspiration, and shopping. However, new users may not have the best experience navigating its mobile app and getting started on a home project. Even as a regular user, I sometimes struggle to quickly locate what I'm looking for or decide where to begin my search for specific projects.
+Houzz offers a wealth of resources for home design, inspiration, and shopping, but new users often struggle to navigate the mobile app and get started on a project. Even as a regular user, I sometimes find it hard to quickly find what I'm looking for or know where to begin.
 
 **Current Design:**
 
-![The current flow for a simple search like "Living Room Reno" can be overwhelming with over 11k images and an uninspiring save feature.](/imgs/houzz-current.png)
+![Current Flow](/imgs/houzz-current.png)
 
-*The current flow: from search to results for a simple task like a "Living Room Reno" can be overwhelming with over 11k images and an uninspiring "save" feature. As a user where do I even start?*
+The current flow from search to results for a simple task like "Living Room Reno" can be overwhelming, with over 11k images and an uninspiring save feature. As a user, where do you even start?
 
-This is a perfect use case for LLMs—a technology that could understand a detailed prompt about exactly what I'm looking for and build a foundation of ideas and resources; delivering more curated content.
+This is a perfect use case for LLMs. A technology that can understand a detailed prompt about exactly what you're looking for and build a curated foundation of ideas and resources. I was inspired by a feature I recently used called "Browse for Me" in Arc. If you're unfamiliar, Arc is a browser made by The Browser Company of New York that is pushing the boundaries of how we interact with the web. It has been heavily adopted by developers and designers, and is constantly shipping cool features that change how we search and browse daily.
 
-I immediately thought of a cool feature I recently used called "Browse for Me" in Arc by The Browser Company. I'm a huge fan of Arc—it offers one of the best browsing experiences for developers and designers, constantly pushing boundaries with features to enhance how we search and browse daily. Inspired by this, I wanted to create a similar experience that expands on the concept with tailored results (it learns as you search), support for multiple search media (such as providing a reference picture or videos), automated project collections, saved search results, and more. Essentially, it would act as a personal assistant, gathering, saving, and presenting exactly what you need. Imagine typing something like, "I need help remodeling my kitchen," and instantly receiving not only media results but text suggestions. This approach makes search fun and intuitive, delivering the information you need to get started right away.
+I wanted to create a similar experience that goes further: tailored results that learn as you search, support for multiple input types like reference images or videos, automated project collections, and more. Think of it as a personal assistant that gathers, saves, and presents exactly what you need. Type something like "I need help remodeling my kitchen" and instantly get curated media, text suggestions, and a head start on your project.
 
-No more manually saving photos, taking notes in external apps, comparing prices across tabs, or spending hours researching. Houzz is now the operating system for everything home-related.
+No more manually saving photos, taking notes in external apps, or spending hours researching across tabs. Houzz is now the operating system for everything home related.
 
 ![Find curated content, advice, and key resources within a few clicks!](/imgs/houzz-curated-search.png)
 
 *Find curated content, advice, and key resources within a few clicks!*
 
-If you still prefer searching for content through traditional methods, they remain fully available. This feature sits on top of search and will wedge its way into the hands of customers looking for a more customized search experience—without disrupting existing approaches. Additionally, it not only significantly improves the user experience but also creates new monetization opportunities for Houzz, such as sponsored results and helping users find products and resources they actually want and need faster.
+If you still prefer traditional search, it remains fully available. This feature sits on top of it as an opt-in layer, designed for users who want a more personalized experience without disrupting the existing one. Beyond improving the user experience, it also opens up new monetization opportunities for Houzz, from sponsored results to helping users find products and resources they actually want, faster.
 
 ## Better Content Discovery
 
 ![Discover page redesign](/imgs/houzz-discover.png)
 
-The current content experience feels static and uninspiring. To address this, I built the **Discover page**, drawing inspiration from TikTok, Instagram Reels, and YouTube Shorts to enhance engagement.
+The current content experience feels static and uninspiring, so I redesigned the Discover page, drawing inspiration from TikTok, Instagram Reels, and YouTube Shorts.
 
-You may wonder why a house-planning app would adopt social media-like features. The goal is simple: sustain curiosity, increase engagement, and unlock new revenue opportunities. Short-form content isn't just a trend—it's a proven strategy for driving user retention and business growth in our 8s or less generation.
+You might wonder why a home planning app needs social media-like features. The goal is simple: sustain curiosity, increase engagement, and unlock new revenue opportunities. Short-form content isn't just a trend, it's a proven strategy for driving retention and growth in an era where attention spans are shorter than ever.
 
-In fact, research shows that video and short-form content significantly enhance user engagement, retention, and growth. According to recent data, since the introduction of YouTube Shorts, the platform has seen a significant increase in users, with monthly active users growing from 1.5 billion in 2022 to approximately 2 billion by the end of 2023; with around 80% of these users regularly watching Shorts.
-
-Further research shows that users are 1.5 times more likely to make a purchase after discovering content in this format. The key metric in mobile apps is how long we can keep users on the app, which drives revenue through ads, partnerships, or premium services. For Houzz, this creates an opportunity to boost engagement and generate less invasive, natural revenue sources.
+The numbers back it up. Since introducing YouTube Shorts, monthly active users grew from 1.5 billion in 2022 to roughly 2 billion by end of 2023, with around 80% of users watching Shorts regularly. Users are also 1.5 times more likely to make a purchase after discovering content in this format. For Houzz, this means more time in the app and less invasive, more natural revenue through ads, partnerships, and premium services.
 
 **Sources:**
 - [The Impact of TikTok User Satisfaction on Continuous Intention to Use the Application](https://www.mdpi.com/2199-8531/8/3/125)
@@ -54,13 +51,14 @@ Further research shows that users are 1.5 times more likely to make a purchase a
 
 ## Branding Refresh
 
-I also refreshed the branding with a brighter, more eye-catching mint green color theme (`#00C29E`) while maintaining the brand's Futura font family. The app's icon now features a glowing halo effect—perfect for standing out among the many apps on our phones!
+I also refreshed the branding with a brighter, more eye-catching mint green (#00C29E) while keeping the brand's Futura font family. The app icon got a glow-up too, featuring a halo effect that helps it stand out on a crowded home screen.
 
 ![Branding refresh](/imgs/houzz-branding.png)
 
 **Design Board:**
 
-I used Figma to structure my process, from brainstorming and gathering inspiration to building high-fidelity mockups. I explored different design concepts, focusing on layout, typography, and visual hierarchy to create simple interfaces and deliver a great user experience.
+4:05 PM
+I used Figma throughout the entire process, from brainstorming and gathering inspiration to building high-fidelity mockups. I explored different design concepts, focusing on layout, typography, and visual hierarchy to keep the interfaces clean and the experience intuitive.
 
 ![Figma design board](/imgs/houzz-design-board.png)
 
@@ -68,8 +66,8 @@ I used Figma to structure my process, from brainstorming and gathering inspirati
 
 ## Conclusion
 
-In this case study, I explored ways to modernize Houzz's mobile app UI and UX, integrating modern features like short-form content and LLM-powered search. This project was a great opportunity to build on my passion for product thinking and design. I was fortunate to be a finalist for the Fellowship—grateful for the process, experiences, and those who reviewed my work.
+In this case study, I explored ways to modernize Houzz's mobile UI and UX, integrating features like short-form content and LLM-powered search. This project was a great opportunity to grow my passion for product thinking and design, and I was fortunate to be a finalist for the fellowship. Grateful for the process and everyone who reviewed my work.
 
-I learned a lot about myself, my passion for design, and my future goals through my essay applications, this case study, creative video submission, and everything in between. I highly recommend all students apply to VC fellowships—there are many great ones out there, such as Thrive Capital and Kleiner Perkins. It's a great chance to learn, and who knows, you might even get the opportunity to work for one of the amazing startups these VC firms help launch and grow!
+Through the essay applications, case study, creative video submission, and everything in between, I learned a lot about myself and my passion for design. I'd highly recommend all students apply to VC fellowships. There are many great ones out there, like Thrive Capital and Kleiner Perkins. It's a great way to learn, and who knows, you might even get the chance to work with one of the amazing startups these firms help build.
 
-Hope you enjoyed this blog post. To anyone reading this, feel free to fork the Figma file, use any of the design resources, or draw inspiration from the content :)
+Hope you enjoyed this case study. Feel free to fork the Figma file, use any of the design resources, or draw inspiration from the work :)

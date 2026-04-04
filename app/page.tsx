@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import ProfileImage from './components/profile-image'
 
 const linkClass = "link-underline"
 
@@ -35,29 +35,22 @@ function SocialLink({ href, label }: { href: string; label: string }) {
 
 export default function Page() {
   return (
-    <div className="flex-1 flex items-center py-8">
+    <div className="flex-1 flex items-center pb-8 md:py-8">
     <section className="flex flex-col md:flex-row gap-8 md:gap-10 md:items-stretch w-full">
       {/* Photo */}
-      <div className="w-full md:w-[45%] md:shrink-0">
-        <Image
-          src="/profile.png"
-          alt="Deniz Jasarbasic"
-          width={600}
-          height={750}
-          className="w-full md:h-full object-cover pointer-events-none select-none"
-          priority
-        />
+      <div className="w-full md:w-[45%] md:shrink-0 mt-[-17px] md:mt-0">
+        <ProfileImage />
       </div>
 
       {/* Content */}
       <div className="flex flex-col gap-4 leading-relaxed">
         <div className="space-y-3">
           <p>
-            Hi, I'm Deniz. I'm currently a Software Engineer at{' '}
+            Hi, I'm Deniz Jasarbasic. I'm a Software Engineer at{' '}
             <a href="https://mercury.com" target="_blank" rel="noopener noreferrer" className={linkClass}>
               Mercury
             </a>
-            . I first joined as a summer intern, where I learned a ton about
+            . I first joined as a summer intern, where I learned a lot about
             observability and performance work. If you're curious,
             here's a{' '}
             <a href="https://jkeuhlen.com/2025/08/04/Silly-Computations.html" target="_blank" rel="noopener noreferrer" className={linkClass}>
@@ -81,7 +74,7 @@ export default function Page() {
               uOttaHack
             </a>
             . If you're interested, check out this{' '}
-            <a href="/blog" className={linkClass}>
+            <a href="/blog/building-a-hackathon-community" className={linkClass}>
               blog post
             </a>{' '}
             I wrote about the experience and how it helped me grow as an builder and
