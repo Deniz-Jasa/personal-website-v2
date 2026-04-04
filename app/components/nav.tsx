@@ -140,7 +140,7 @@ export function Navbar() {
               opacity: pill.ready ? 1 : 0,
               background: 'rgba(79, 79, 79, 0.07)',
               border: '1px solid rgba(255,255,255,0.1)',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 0 2px 6px rgba(0,0,0,0.5)',
+              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.01), 0 2px 6px rgba(0,0,0,0.5)',
             }}
           />
 
