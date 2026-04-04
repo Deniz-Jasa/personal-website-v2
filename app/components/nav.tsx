@@ -44,12 +44,17 @@ const navLinks = [
 
 export function Navbar() {
   const [mapUrl, setMapUrl] = useState('')
+  const [isIOS, setIsIOS] = useState(false)
   const pathname = usePathname()
   const navRef = useRef<HTMLElement>(null)
   const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({})
   const [pill, setPill] = useState({ left: 0, width: 0, height: 0, top: 0, ready: false })
 
   useEffect(() => {
+    setIsIOS(
+      /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    )
     setMapUrl(buildDisplacementMap())
   }, [])
 
@@ -65,16 +70,17 @@ export function Navbar() {
 
     const navRect = nav.getBoundingClientRect()
     const elRect = el.getBoundingClientRect()
+    const inset = 4
     setPill({
       left: elRect.left - navRect.left,
-      top: elRect.top - navRect.top,
+      top: elRect.top - navRect.top - inset - 1,
       width: elRect.width,
-      height: elRect.height,
+      height: elRect.height + inset * 2,
       ready: true,
     })
   }, [pathname])
 
-  const backdropFilter = mapUrl
+  const backdropFilter = (mapUrl && !isIOS)
     ? `url(#${FILTER_ID}) blur(6px) brightness(1.07)`
     : 'blur(16px) brightness(1.05)'
 
@@ -110,7 +116,7 @@ export function Navbar() {
       <div className="fixed bottom-6 left-0 right-0 z-50 px-4 w-fit mx-auto">
         <nav
           ref={navRef}
-          className="flex flex-row items-center relative fade md:overflow-auto scroll-pr-6 md:relative px-3 py-2 gap-1"
+          className="flex flex-row items-center relative fade md:overflow-auto scroll-pr-6 md:relative px-1.5 py-2.5 gap-1.5"
           id="nav"
           style={{
             background: 'rgba(20, 18, 11, 0.72)',
@@ -125,13 +131,16 @@ export function Navbar() {
           {/* Sliding pill */}
           <div
             aria-hidden="true"
-            className="absolute rounded-full bg-white/10 pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            className="absolute rounded-full pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
             style={{
               left: pill.left,
               top: pill.top,
               width: pill.width,
               height: pill.height,
               opacity: pill.ready ? 1 : 0,
+              background: 'rgba(79, 79, 79, 0.07)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 0 2px 6px rgba(0,0,0,0.5)',
             }}
           />
 
@@ -143,7 +152,7 @@ export function Navbar() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative z-10 px-3 py-1 rounded-full text-sm"
+                className="relative z-10 px-3.5 py-1 rounded-full text-sm"
               >
                 {label}
               </a>
@@ -152,7 +161,7 @@ export function Navbar() {
                 key={href}
                 ref={(el) => { itemRefs.current[href] = el }}
                 href={href}
-                className="relative z-10 px-3 py-1 rounded-full text-sm"
+                className="relative z-10 px-3.5 py-1 rounded-full text-sm"
               >
                 {label}
               </Link>
