@@ -77,7 +77,7 @@ export default function Page() {
             <a href="/blog/building-a-hackathon-community" className={linkClass}>
               blog post
             </a>{' '}
-            I wrote about the experience and how it helped me grow as an builder and
+            I wrote about the experience and how it helped me grow as a builder and
             aspiring founder.
           </p>
           <p>Feel free to connect, and enjoy the site!</p>
