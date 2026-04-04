@@ -1,31 +1,21 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 
 export async function generateStaticParams() {
   let posts = getBlogPosts()
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
-  if (!post) {
-    return
-  }
+export async function generateMetadata({ params }) {
+  let { slug } = await params
+  let post = getBlogPosts().find((post) => post.slug === slug)
+  if (!post) return
 
-  let {
-    title,
-    publishedAt: publishedTime,
-    summary: description,
-    image,
-  } = post.metadata
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  let { title, publishedAt: publishedTime, summary: description, image } = post.metadata
+  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`
 
   return {
     title,
@@ -36,11 +26,7 @@ export function generateMetadata({ params }) {
       type: 'article',
       publishedTime,
       url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -51,8 +37,9 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+export default async function Blog({ params }) {
+  let { slug } = await params
+  let post = getBlogPosts().find((post) => post.slug === slug)
 
   if (!post) {
     notFound()
@@ -77,20 +64,40 @@ export default function Blog({ params }) {
             url: `${baseUrl}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'My Portfolio',
+              name: 'Deniz Jasarbasic',
             },
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+
+      {post.metadata.image && (
+        <div className="relative -mx-8 md:-mx-4 lg:-mx-[max(1rem,calc((100vw-62rem)/2))] -mt-[3rem] md:-mt-[4rem] h-60 md:h-[22rem] overflow-hidden">
+          <img
+            src={post.metadata.image}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-[#14120B]" />
+        </div>
+      )}
+
+      <div className={post.metadata.image ? 'mt-10 relative z-10' : ''}>
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-[#D4845F] transition-colors mb-8"
+        >
+          ← Back
+        </Link>
+        <h1 className="title font-semibold text-2xl tracking-tighter">
+          {post.metadata.title}
+        </h1>
+        <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </div>
       </div>
-      <article className="prose">
+      <article className="prose pb-16">
         <CustomMDX source={post.content} />
       </article>
     </section>

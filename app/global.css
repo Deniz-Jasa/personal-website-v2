@@ -26,6 +26,10 @@
   }
   html {
     color-scheme: dark;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
 
@@ -147,4 +151,37 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* Image skeleton shimmer while loading */
+@keyframes img-shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+img {
+  background: linear-gradient(
+    90deg,
+    #1e1c14 25%,
+    #2a2820 50%,
+    #1e1c14 75%
+  );
+  background-size: 600px 100%;
+  animation: img-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Underline that expands from center on hover */
+.link-underline {
+  text-decoration: none;
+  background-image:
+    linear-gradient(#D4845F, #D4845F),
+    linear-gradient(rgba(220, 220, 220, 0.75), rgba(220, 220, 220, 0.75));
+  background-size: 0% 1px, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center bottom 1px, center bottom 1px;
+  transition: background-size 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-underline:hover {
+  background-size: 100% 1px, 100% 1px;
 }

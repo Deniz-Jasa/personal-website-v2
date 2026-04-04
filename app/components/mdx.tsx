@@ -48,6 +48,23 @@ function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />
 }
 
+function MdxImage(props) {
+  return <img alt={props.alt} className="rounded-lg w-full" {...props} />
+}
+
+function YouTube({ id }: { id: string }) {
+  return (
+    <div className="relative w-full mb-8" style={{ paddingBottom: '56.25%' }}>
+      <iframe
+        className="absolute top-0 left-0 w-full h-full rounded-lg"
+        src={`https://www.youtube.com/embed/${id}`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    </div>
+  )
+}
+
 function Code({ children, ...props }) {
   let codeHTML = highlight(children)
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
@@ -87,6 +104,7 @@ function createHeading(level) {
 }
 
 let components = {
+  YouTube,
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -94,6 +112,7 @@ let components = {
   h5: createHeading(5),
   h6: createHeading(6),
   Image: RoundedImage,
+  img: MdxImage,
   a: CustomLink,
   code: Code,
   Table,
