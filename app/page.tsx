@@ -48,9 +48,9 @@ export default function Page() {
           <p>
             Hi, I'm Deniz Jasarbasic. I'm a Software Engineer at{' '}
             <a href="https://mercury.com" target="_blank" rel="noopener noreferrer" className={linkClass}>
-              Mercury
+              Mercury based in New York City
             </a>
-            . I first joined as a summer intern, where I learned a lot about
+            . I first joined in 2025 as an intern, where I learned a lot about
             observability and performance work. If you're curious,
             here's a{' '}
             <a href="https://jkeuhlen.com/2025/08/04/Silly-Computations.html" target="_blank" rel="noopener noreferrer" className={linkClass}>
@@ -65,7 +65,7 @@ export default function Page() {
             </a>{' '}
             in Paris, taking graduate courses in ML, Quantum Physics, and Bioinformatics,
             while maximizing the rest of my time traveling, meeting new people, and
-            improving my French. If you're passionate about these subjects or traveling in general, I'd love to talk :)
+            improving my French. If you're passionate about these subjects or traveling in general, I'd love to chat :)
           </p>
           <p>
             I'm also a huge proponent of hackathons. A few years ago, I restarted and
