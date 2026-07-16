@@ -25,7 +25,7 @@ function SocialLink({ href, label }: { href: string; label: string }) {
       href={href}
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel="noopener noreferrer"
-      className="flex items-center text-neutral-600 dark:text-neutral-300 link-underline"
+      className="flex items-center text-neutral-300 link-underline"
     >
       <ArrowIcon />
       <p className="ml-1.5 h-7">{label}</p>
