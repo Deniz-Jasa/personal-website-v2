@@ -48,9 +48,9 @@ export default function Page() {
           <p>
             Hi, I'm Deniz Jasarbasic. I'm a Software Engineer at{' '}
             <a href="https://mercury.com" target="_blank" rel="noopener noreferrer" className={linkClass}>
-              Mercury based in New York City
+              Mercury
             </a>
-            . I first joined in 2025 as an intern, where I learned a lot about
+            based in New York City. I first joined Mercury in 2025 as an intern, where I learned a lot about
             observability and performance work. If you're curious,
             here's a{' '}
             <a href="https://jkeuhlen.com/2025/08/04/Silly-Computations.html" target="_blank" rel="noopener noreferrer" className={linkClass}>
