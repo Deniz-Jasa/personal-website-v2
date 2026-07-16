@@ -86,7 +86,7 @@ export default async function Blog({ params }) {
       <div className={post.metadata.image ? 'mt-10 relative z-10' : ''}>
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-[#D4845F] transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-[#D4845F] transition-colors mb-8"
         >
           ← Back
         </Link>
@@ -94,7 +94,7 @@ export default async function Blog({ params }) {
           {post.metadata.title}
         </h1>
         <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="text-sm text-neutral-400">
             {formatDate(post.metadata.publishedAt)}
           </p>
         </div>
